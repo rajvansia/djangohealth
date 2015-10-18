@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^me/edit$', views.EditProfile.as_view(), name='edit_self'),
     url(r'^(?P<slug>[\w\-]+)$', views.ShowProfile.as_view(),
         name='show'),
+    # url(r'^api/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
 ]

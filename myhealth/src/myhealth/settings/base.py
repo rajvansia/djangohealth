@@ -74,7 +74,7 @@ INSTALLED_APPS = (
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
-
+    'rest_framework',
     'profiles',
     'accounts',
 

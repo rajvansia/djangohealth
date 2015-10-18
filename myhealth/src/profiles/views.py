@@ -5,6 +5,11 @@ from django.contrib import messages
 from braces.views import LoginRequiredMixin
 from . import forms
 from . import models
+# from serializers import UserSerializer
+# class base views a serilize that data
+# class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset=UserProfile.objects.all()
+#     serializer_class=UserSerializer
 
 
 class ShowProfile(LoginRequiredMixin, generic.TemplateView):
