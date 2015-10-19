@@ -38,10 +38,12 @@
         <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> {{ show_user.last_login }}</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Gender</strong></span> {{ show_user.profile.gender }}</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Birthday</strong></span> {{ show_user.profile.birthday }}</li>
+     <li class="list-group-item text-right"><span class="pull-left"><strong>parent</strong></span> {{ show_family.myparent }}</li>
+         <li class="list-group-item text-right"><span class="pull-left"><strong>Test</strong></span> {{ show_children }}</li>
         {% if show_user.profile.is_parent %}
-        <li class="list-group-item text-right"><span class="pull-left"><strong>Parent</strong></span> Parent</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Family</strong></span> Parent</li>
         {% else %}
-        <li class="list-group-item text-right"><span class="pull-left"><strong>gender</strong></span> Child</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Family</strong></span> Child</li>
         {% endif %}
       </ul>
     </div>

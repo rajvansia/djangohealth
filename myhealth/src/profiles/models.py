@@ -29,3 +29,27 @@ class BaseProfile(models.Model):
 class Profile(BaseProfile):
     def __str__(self):
         return "{}'s profile". format(self.user)
+        
+class Parent(models.Model):
+    parent = models.ForeignKey(Profile,primary_key=True)
+    def __str__(self):
+        return "{}'s profile". format(self.parent)
+class Child(models.Model):
+    child = models.ForeignKey(Profile,primary_key=True)
+    # def __unicode__(self):
+    #     return u'%s %s' % (self.child)
+    def __str__(self):
+        return "{}'s profile". format(self.child)
+class myid(models.Model):
+    my_id = models.ForeignKey(Profile,primary_key=True)
+    # def __unicode__(self):
+    #     return u'%s %s' % (self.child)
+    def __str__(self):
+        return "{}'s profile". format(self.my_id)
+class Family(models.Model):
+    mychild = models.ForeignKey(Child)
+    myparent = models.ForeignKey(Parent)
+    # def __unicode__(self):
+    #     return u'%s %s' % (self.mychild, self.myparent)
+    def __str__(self):
+        return "{}'s profile". format(self.mychild)

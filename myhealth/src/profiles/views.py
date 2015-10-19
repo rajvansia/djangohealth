@@ -5,11 +5,14 @@ from django.contrib import messages
 from braces.views import LoginRequiredMixin
 from . import forms
 from . import models
-# from serializers import UserSerializer
+from serializers import ProfileSerializer
+from models import Child,Parent,Profile,Family
+from rest_framework import generics, permissions
 # class base views a serilize that data
-# class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-#     queryset=UserProfile.objects.all()
-#     serializer_class=UserSerializer
+class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset=Profile.objects.all()
+    serializer_class=ProfileSerializer
+
 
 
 class ShowProfile(LoginRequiredMixin, generic.TemplateView):
@@ -18,15 +21,26 @@ class ShowProfile(LoginRequiredMixin, generic.TemplateView):
 
     def get(self, request, *args, **kwargs):
         slug = self.kwargs.get('slug')
-        if slug:
-            profile = get_object_or_404(models.Profile, slug=slug)
-            user = profile.user
-        else:
-            user = self.request.user
+        # if slug:
+        #     profile = get_object_or_404(models.Profile, slug=slug)
+        #     user = profile.user
+        # else:
+        # prevents te slug from accessing the user who is them
+        user = self.request.user
+        
+        # child=Child.objects.get(pk=1)
 
         if user == self.request.user:
+            mypk=user.profile.user_id
+            # child=Child.objects.get(pk=mypk)
+            parent=Parent.objects.get(pk=mypk)
+            myfamily=Family.objects.get(pk=3)
+            mychildren=parent.family_set.all()
             kwargs["editable"] = True
         kwargs["show_user"] = user
+        # kwargs["show_child"] = child
+        kwargs["show_children"] = mychildren
+        kwargs["show_family"] = myfamily
         return super(ShowProfile, self).get(request, *args, **kwargs)
 
 

@@ -1,9 +1,29 @@
 from __future__ import unicode_literals
 from django.contrib import admin
 from authtools.admin import NamedUserAdmin
-from .models import Profile
+from .models import Profile, Child, Family, Parent,myid
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
+
+
+class ParentAdmin(admin.ModelAdmin):
+  list_display=('parent',)
+  search_feilds=('name')
+admin.site.register(Parent,ParentAdmin)
+
+class FamilyAdmin(admin.ModelAdmin):
+  list_display=('id','mychild','myparent')
+  search_feilds=('mychild',"myparent")
+admin.site.register(Family,FamilyAdmin)
+class myidAdmin(admin.ModelAdmin):
+  list_display=('my_id',)
+  search_feilds=('id','my_id')
+admin.site.register(myid,myidAdmin)
+
+class ChildAdmin(admin.ModelAdmin):
+  list_display=('child',)
+  search_feilds=('name')
+admin.site.register(Child,ChildAdmin)
 
 User = get_user_model()
 
