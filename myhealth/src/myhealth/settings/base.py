@@ -70,7 +70,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django_nvd3',
+    'charts',
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
