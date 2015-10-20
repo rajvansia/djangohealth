@@ -53,3 +53,20 @@ class Family(models.Model):
     #     return u'%s %s' % (self.mychild, self.myparent)
     def __str__(self):
         return "{}'s profile". format(self.mychild)
+        
+class Myrolls(models.Model):
+    roll= models.CharField(max_length=30, blank=True,null=True)
+    # def __unicode__(self):
+    #     return u'%s %s' % (self.mychild, self.myparent)
+    def __str__(self):
+        return "{}'s profile". format(self.roll)
+        
+        
+class Myfamily(models.Model):
+    myself = models.ForeignKey(myid)
+    myrelation = models.ForeignKey(Profile)
+    thisroll= models.ForeignKey(Myrolls, blank=True,null=True)
+    # def __unicode__(self):
+    #     return u'%s %s' % (self.mychild, self.myparent)
+#     # def __str__(self):
+#     #     return "{}'s profile". format(self.)

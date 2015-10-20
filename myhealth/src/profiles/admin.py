@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 from django.contrib import admin
 from authtools.admin import NamedUserAdmin
-from .models import Profile, Child, Family, Parent,myid
+from .models import Profile, Child, Family, Parent,myid,Myfamily,Myrolls
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 
@@ -10,6 +10,14 @@ class ParentAdmin(admin.ModelAdmin):
   list_display=('parent',)
   search_feilds=('name')
 admin.site.register(Parent,ParentAdmin)
+class MyrollsAdmin(admin.ModelAdmin):
+  list_display=('roll',)
+  search_feilds=('roll')
+admin.site.register(Myrolls,MyrollsAdmin)
+class MyfamilyAdmin(admin.ModelAdmin):
+  list_display=('myself','myrelation','thisroll')
+  search_feilds=('myself',)
+admin.site.register(Myfamily,MyfamilyAdmin)
 
 class FamilyAdmin(admin.ModelAdmin):
   list_display=('id','mychild','myparent')
