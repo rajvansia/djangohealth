@@ -22,6 +22,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             join(BASE_DIR, 'templates'),
+       
             # insert more TEMPLATE_DIRS here
         ],
         'APP_DIRS': True,
@@ -78,6 +79,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'profiles',
     'accounts',
+    'api',
 
 )
 

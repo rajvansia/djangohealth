@@ -1,0 +1,17 @@
+
+  {% load nvd3_tags %}
+ <head>
+{% include_chart_jscss %}
+{% if date_tag %}
+    {% load_chart charttype chartdata chartcontainer  True "%d %b %Y %H" %}
+    {% load_chart charttype1 chartdata1 chartcontainer1  True "%d %b %Y %H" %}
+{% else %}
+    {% load_chart charttype chartdata chartcontainer extra  %}
+    {% load_chart charttype1 chartdata1 chartcontainer1 extra1  %}
+{% endif %}
+ </head>
+ <body>
+  {% include_container chartcontainer 400 600 %}
+  <h1>second graph</h1>
+{% include_container chartcontainer1 400 600 %}
+ </body>

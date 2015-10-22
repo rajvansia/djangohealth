@@ -15,6 +15,11 @@ class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 
+# class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset=User.objects.all()
+#     serializer_class=UserSerializer
+
+
 class ShowProfile(LoginRequiredMixin, generic.TemplateView):
     template_name = "profiles/show_profile.html"
     http_method_names = ['get']

@@ -92,3 +92,46 @@ def demo_linechart(request):
         }
     }
     return render_to_response('charts/linechart.html', data)
+
+
+
+def demo_linechart_without_date(request):
+
+    extra_serie = {}
+    xdata = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    ydata = [3, 5, 7, 8, 3, 5, 50, 5, 7, 6, 3, 1]
+    xdata1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 50]
+    ydata1 = [3, 5, 7, 8, 3, 5, 3, 5, 7, 6, 3, 50]
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
+                }
+    chartdata1 = {
+    'x': xdata1,
+    'name1': 'series 1', 'y1': ydata1, 'extra1': extra_serie,
+}
+    charttype = "lineChart"
+    charttype1 = "pieChart"
+    chartcontainer = 'linechart_container'
+    chartcontainer1 = 'linechart_container1'# container name
+    data = {
+    'charttype': charttype,
+    'chartdata': chartdata,
+    'chartcontainer': chartcontainer,
+    'charttype1': charttype1,
+    'chartdata1': chartdata1,
+    'chartcontainer1': chartcontainer1,
+    'extra': {
+        'x_is_date': False,
+        'x_axis_format': '',
+        'tag_script_js': True,
+        'jquery_on_ready': False,
+    },
+    'extra1': {
+        'x_is_date': False,
+        'x_axis_format': '',
+        'tag_script_js': True,
+        'jquery_on_ready': False,
+    }
+}
+    return render_to_response('charts/linecharts.html', data)

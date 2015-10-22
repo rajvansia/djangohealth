@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 import profiles.urls
+import api.urls
 import accounts.urls
 import charts.urls
 from . import views
@@ -12,7 +13,8 @@ urlpatterns = [
     url(r'^about/$', views.AboutPage.as_view(), name='about'),
     url(r'^users/', include(profiles.urls, namespace='profiles')),
     url(r'^admin/', include(admin.site.urls)),
-     url(r'^chart/', include(charts.urls, namespace='charts')),
+    url(r'^chart/', include(charts.urls, namespace='charts')),
+    url(r'^api/', include(api.urls, namespace='api')),
     url(r'^', include(accounts.urls, namespace='accounts')),
 ]
 
