@@ -80,6 +80,13 @@ INSTALLED_APPS = (
     'profiles',
     'accounts',
     'api',
+    'rest_framework_swagger',
+    'devices',
+    'tasks',
+    'measurements',
+    'oauth2_provider',
+    
+    
 
 )
 
@@ -142,3 +149,22 @@ LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
 LOGIN_URL = reverse_lazy("accounts:login")
 
 THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails
+REST_FRAMEWORK = {
+    # 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    )
+}
+
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
+}
+

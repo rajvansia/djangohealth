@@ -16,8 +16,12 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ('bio','gender','slug' )
         
 class MyfamilySerializer(serializers.ModelSerializer):
+    # myself_display = serializers.SerializerMethodField('get_myself_display')
     class Meta:
         model=Myfamily
+        fields =('myself','myrelation')
+        # def get_myself_display(self, obj):
+        #     return obj.get_myslef_display()
         
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

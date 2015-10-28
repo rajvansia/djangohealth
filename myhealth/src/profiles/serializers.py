@@ -8,7 +8,8 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model=Profile
         
-     
+        def get_status_display(self, obj):
+           return obj.get_status_display()
 
 
 

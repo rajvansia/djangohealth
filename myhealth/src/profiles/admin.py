@@ -4,7 +4,29 @@ from authtools.admin import NamedUserAdmin
 from .models import Profile, Child, Family, Parent,myid,Myfamily,Myrolls
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
+from devices.models import Devices
+from tasks.models import Tasks
+from measurements.models import Steps, Calories 
 
+class StepsAdmin(admin.ModelAdmin):
+  list_display=('owner','deviceId','steps','unit','dateAdded')
+  search_feilds=('dateAdded','owner')
+admin.site.register(Steps,StepsAdmin)
+
+class DevicesAdmin(admin.ModelAdmin):
+  list_display=('owner','deviceType')
+  search_feilds=('deviceType','owner')
+admin.site.register(Devices,DevicesAdmin)
+
+class CaloriesAdmin(admin.ModelAdmin):
+  list_display=('owner','deviceId','calories','unit','dateAdded')
+  search_feilds=('dateAdded','owner')
+admin.site.register(Calories,CaloriesAdmin)
+
+class TasksAdmin(admin.ModelAdmin):
+  list_display=('owner','tasksType')
+  search_feilds=('tasksType','owner')
+admin.site.register(Tasks,TasksAdmin)
 
 class ParentAdmin(admin.ModelAdmin):
   list_display=('parent',)

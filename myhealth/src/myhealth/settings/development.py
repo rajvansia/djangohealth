@@ -10,7 +10,7 @@ TEMPLATE_DEBUG = True
 # See http://stackoverflow.com/a/4806384
 if "celery" in sys.argv[0]:
     DEBUG = False
-
+AUTH_USER_MODEL = 'authtools.User'
 # Django Debug Toolbar
 INSTALLED_APPS += (
     'debug_toolbar.apps.DebugToolbarConfig',)
