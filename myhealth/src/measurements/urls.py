@@ -23,7 +23,7 @@ urlpatterns = patterns('',
         url(r'^Calories/(?P<pk>[0-9])/$',  measurementsviews.CaloriesDetail.as_view()),
         url(r'^Steps/(?P<pk>[0-9])/$',  measurementsviews.StepsDetail.as_view()),
         url(r'^allsteps/$',  measurementsviews.StepsViewSet),
-        url(r'^caloriesdata/$', # JS
+        url(r'^caloriesdata/(?P<username>[\w.@+-]+)/(?P<datestart>[\w.@+-]+)/(?P<dateend>[\w.@+-]+)$', # JS
         measurementsviews.get_calories_data,
         name='caloriesdata'),
     

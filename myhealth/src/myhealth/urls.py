@@ -60,6 +60,7 @@ urlpatterns = [
     url(r'^api/', include(api.urls, namespace='api')),
     url(r'^', include(accounts.urls, namespace='accounts')),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    url(r'^fitbit/', include('fitapp.urls')),
 
 ]
 

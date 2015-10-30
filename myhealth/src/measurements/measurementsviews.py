@@ -31,12 +31,12 @@ class CaloriesViewSet(viewsets.ModelViewSet):
     serializer_class = CaloriesSerializer
     
 @api_view(['GET'])    
-def get_calories_data(request, username=None):
+def get_calories_data(request, username=None,datestart=None, dateend=None):
     '''
     Process the data to pass it to the JS libraries to generate an SVG image
     '''
     
-    mycalories = Calories.objects.filter(owner=1)
+    mycalories = Calories.objects.filter(owner=username,dateAdded__range=[datestart, dateend])
 
 
     chart_data = []

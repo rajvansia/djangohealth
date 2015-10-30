@@ -76,6 +76,7 @@ INSTALLED_APPS = (
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
+    'fitapp',
     'rest_framework',
     'profiles',
     'accounts',
@@ -168,3 +169,5 @@ OAUTH2_PROVIDER = {
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
 }
 
+FITAPP_CONSUMER_KEY = '4d20a9b52ad7ba67424b5a3339b2a4f0'
+FITAPP_CONSUMER_SECRET = '123d611d56ee4f3ff2050561efd9bea5'
